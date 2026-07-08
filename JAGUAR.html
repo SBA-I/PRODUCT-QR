@@ -75,6 +75,7 @@
             .grid-2 { grid-template-columns: repeat(2, 1fr); }
             .grid-3 { grid-template-columns: repeat(3, 1fr); }
             .hero-split { grid-template-columns: 1.2fr 0.8fr; display: grid; align-items: center; gap: 40px;}
+            .full-width-card { grid-column: span 2; }
         }
 
         /* Header & Navigation */
@@ -97,9 +98,9 @@
         .logo-placeholder {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--primary);
             text-decoration: none;
         }
@@ -107,18 +108,18 @@
         .logo-img {
             width: 45px;
             height: 45px;
-            background: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            overflow: hidden;
+            flex-shrink: 0;
         }
 
         /* Dark Mode Toggle */
         .theme-toggle {
             background: none;
-            border: 20px;
+            border: none;
             cursor: pointer;
             font-size: 1.2rem;
             color: var(--text-main);
@@ -127,6 +128,9 @@
             background-color: var(--border-color);
             width: 40px;
             height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: var(--transition);
         }
 
@@ -172,28 +176,18 @@
             margin-bottom: 20px;
         }
 
-        /* Image Placeholders with Hover Effect */
+        /* Image Containers */
         .img-container {
             width: 100%;
             height: 380px;
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
             border-radius: 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #2e7d32;
-            font-weight: 500;
             position: relative;
-            border: 2px dashed #a5d6a7;
             overflow: hidden;
             transition: var(--transition);
-        }
-
-        [data-theme="dark"] .img-container {
-            background: linear-gradient(135deg, #1e293b, #334155);
-            border-color: #475569;
-            color: #a5d6a7;
         }
 
         .img-container:hover {
@@ -273,12 +267,6 @@
             font-weight: 600;
         }
 
-        tr:last-child td {
-            border-bottom: none;
-            font-weight: bold;
-            background-color: var(--border-color);
-        }
-
         /* Action Buttons Grid */
         .action-grid {
             display: grid;
@@ -302,8 +290,7 @@
             cursor: pointer;
         }
 
-        .btn-call { background: #25d366; color: white; } /* Dynamic Green fallback */
-        .btn-call { background: #007bb6; color: white; }
+        .btn-call { background: #0288d1; color: white; }
         .btn-whatsapp { background: #25D366; color: white; }
         .btn-email { background: #ea4335; color: white; }
         .btn-map { background: #4285f4; color: white; }
@@ -316,81 +303,12 @@
             opacity: 0.9;
         }
 
-        /* QR Code & Company Card Layout */
+        /* Corporate Details Layout */
         .company-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-            text-align: center;
-        }
-
-        @media(min-width: 500px) {
-            .company-wrapper {
-                flex-direction: row;
-                text-align: left;
-                justify-content: space-between;
-            }
-        }
-
-        .qr-placeholder {
-            width: 110px;
-            height: 110px;
-            background: white;
-            border: 4px solid var(--border-color);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.65rem;
-            color: #333;
-            text-align: center;
-            font-weight: bold;
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .qr-placeholder img {
             width: 100%;
-            height: 100%;
-            position: absolute;
         }
 
-        /* Scroll To Top Button */
-        #scrollToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--primary);
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 99;
-            transition: var(--transition);
-        }
-
-        #scrollToTop:hover {
-            transform: translateY(-5px);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            background: var(--bg-card);
-        }
-
-        /* Simple CSS Entry Animation */
+        /* Entry Animation */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -398,7 +316,6 @@
             }
         }
 
-        /* Delaying Card Animations slightly for elegant flow */
         .card:nth-child(1) { animation-delay: 0.1s; }
         .card:nth-child(2) { animation-delay: 0.2s; }
         .card:nth-child(3) { animation-delay: 0.3s; }
@@ -409,14 +326,12 @@
     <!-- Header Section -->
     <header>
         <div class="container nav-container">
-            <!-- Company Logo Placeholder -->
-            <!-- UPDATED HEADER CODE -->
-<a href="#" class="logo-placeholder">
-    <div class="logo-img" style="background: none;">
-        <img src="logo.jpg" alt="Shree Balaji Agro Logo" style="width: 100%; height: 100%; object-fit: contain;">
-    </div>
-    <span>SBA Industries</span>
-</a>
+            <a href="#" class="logo-placeholder">
+                <div class="logo-img">
+                    <img src="logo.jpg" alt="Shree Balaji Agro Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <span>Shree Balaji Agro Industries</span>
+            </a>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                 <i class="fa-solid fa-moon"></i>
             </button>
@@ -440,19 +355,14 @@
                 </div>
 
                 <div class="action-grid">
-                    <a href="tel:+917744998998" class="btn btn-primary-intent" style="background-color: var(--primary)"><i class="fa-solid fa-phone"></i> Call Now</a>
-                    <!-- Replace '#' with your actual brochure link path for GitHub Pages -->
-                    <a href="#" class="btn btn-download"><i class="fa-solid fa-file-pdf"></i> Brochure</a>
+                    <a href="tel:+917744998998" class="btn btn-primary-intent"><i class="fa-solid fa-phone"></i> Call Now</a>
+                    <a href="BROCHURE.pdf" target="_blank" class="btn btn-download"><i class="fa-solid fa-file-pdf"></i> Brochure</a>
                 </div>
             </div>
 
-            <!-- Product Image Placeholder -->
+            <!-- Product Image Container -->
             <div class="img-container">
-                <!-- Drop your product image here: -->
-                <!-- <img src="assets/jaguar-product.png" alt="Jaguar Botanical Extract"> -->
-                <i class="fa-solid fa-bottle-droplet fa-3x" style="margin-bottom: 10px;"></i>
-                <span>Product Image Placeholder</span>
-                <span style="font-size: 0.75rem; opacity: 0.7;">(Replace with asset image)</span>
+                <img src="jaguar-img.jpg" alt="JAGUAR Botanical Garlic Extract 1.6% Bottle">
             </div>
         </section>
 
@@ -466,94 +376,104 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Ingredient</th>
-                                <th>By Weight</th>
+                                <th>Ingredients</th>
+                                <th>Content (% w/w)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Garlic oil</td>
-                                <td>1.6% (Min.)</td>
+                                <td>Garlic oil per cent. by weight, minimum</td>
+                                <td>1.6</td>
                             </tr>
                             <tr>
-                                <td>Tween 80</td>
-                                <td>6.0% (Max.)</td>
+                                <td>Tween 80 per cent. by weight, maximum</td>
+                                <td>6.0</td>
                             </tr>
                             <tr>
-                                <td>Cottonseed oil</td>
-                                <td>92.4% (Max.)</td>
+                                <td>Cottonseed oil per cent. by weight, maximum</td>
+                                <td>92.4</td>
                             </tr>
-                            <tr>
-                                <td><strong>Total Percent</strong></td>
-                                <td><strong>100.0%</strong></td>
+                            <tr style="font-weight: bold; background-color: var(--border-color);">
+                                <td>Total (per cent.)</td>
+                                <td>100</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <!-- Highlights & Benefits Card -->
+            <!-- Official Gazette Specifications Card -->
             <div class="card">
-                <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Product Highlights & Benefits</h3>
-                <ul class="icon-list">
-                    <li><i class="fa-solid fa-circle-check"></i> <div><strong>100% Botanical:</strong> Safe, completely organic-derived liquid formula base.</div></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <div><strong>Natural Protection:</strong> Garlic-based defensive extracts activate plant immunity pathways naturally.</div></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <div><strong>Enhanced Spreading:</strong> Contains optimized Tween 80 surfactant matrices for excellent leaf wetness adhesion.</div></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <div><strong>Eco-Friendly Base:</strong> Cottonseed oil carrier profile provides uniform foliar coverage stability.</div></li>
-                </ul>
+                <h3><i class="fa-solid fa-list-check"></i> Official Specifications</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parameters</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Allyl sulfides per cent. by weight, minimum</td>
+                                <td>0.5</td>
+                            </tr>
+                            <tr>
+                                <td>pH (10 % aqueous solution)</td>
+                                <td>4.1 ± 0.5</td>
+                            </tr>
+                            <tr>
+                                <td>Total organic carbon per cent. by weight, minimum</td>
+                                <td>52.34</td>
+                            </tr>
+                            <tr>
+                                <td>Specific gravity</td>
+                                <td>0.94 ± 0.02</td>
+                            </tr>
+                            <tr>
+                                <td>Solubility per cent. by weight, minimum</td>
+                                <td>96.52</td>
+                            </tr>
+                            <tr>
+                                <td>Total dissolved solids per cent. by weight, minimum</td>
+                                <td>0.1057</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <!-- Application Card -->
-            <div class="card">
+            <!-- Full Width Crop Recommendation & Dosage Card -->
+            <div class="card full-width-card">
                 <h3><i class="fa-solid fa-wheat-awn"></i> Crop Recommendation & Dosage</h3>
-                <ul class="icon-list" style="margin-bottom: 15px;">
+                <ul class="icon-list">
                     <li><i class="fa-solid fa-vial"></i> <div><strong>Target Crop:</strong> Optimized specifically for high-yield <strong>Tomato</strong> performance.</div></li>
-                    <li><i class="fa-solid fa-droplet"></i> <div><strong>Recommended Dose:</strong> Foliar Application at <strong>1000 ml / Hectare</strong>.</div></li>
-                    <li><i class="fa-solid fa-calendar-days"></i> <div><strong>Frequency:</strong> Three consecutive scheduled foliar applications across standard plant growth milestones.</div></li>
+                    <li><i class="fa-solid fa-droplet"></i> <div><strong>Recommended Dose:</strong> Three foliar applications at <strong>1000 ml/ha</strong>.</div></li>
                 </ul>
             </div>
 
-            <!-- Storage & Safety Card -->
-            <div class="card">
-                <h3><i class="fa-solid fa-triangle-exclamation"></i> Storage & Precautions</h3>
-                <ul class="icon-list">
-                    <li><i class="fa-solid fa-temperature-arrow-down"></i> <div><strong>Storage:</strong> Store in original tightly-sealed container away from direct sunlight, moisture, heat, or open flame sources.</div></li>
-                    <li><i class="fa-solid fa-hand-holding-droplet"></i> <div><strong>Precautions:</strong> Shake well before mixing. Avoid structural formulation breathing spray mist misting cloud. Wash hands post-handling.</div></li>
-                </ul>
-            </div>
         </div>
 
         <!-- Corporate Profile & Communications -->
         <div class="card" style="margin-top: 25px;">
             <div class="company-wrapper">
-                <div>
-                    <h3 style="margin-bottom: 5px;"><i class="fa-solid fa-industry"></i> Shree Balaji Agro Industries</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">
-                        <strong>Regd. Office:</strong> 2404/B1, Lane No.6, Dhule - 424001 (M.S.) India<br>
-                        <strong>Factory Unit:</strong> Plot No. E-35, MIDC, Awdhan, Dhule - 424006 (M.S.)
-                    </p>
-                    
-                    <!-- Advanced Connectivity Layout Grid -->
-                    <div class="action-grid" style="margin-top: 15px;">
-                        <a href="tel:+917744998998" class="btn btn-call"><i class="fa-solid fa-phone"></i> Phone</a>
-                        <a href="https://wa.me/917744998998" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-                        <a href="mailto:sbaindia44@gmail.com" class="btn btn-email"><i class="fa-solid fa-envelope"></i> Email</a>
-                        <a href="https://maps.google.com/?q=Plot+No.+E-35,+MIDC,+Awdhan,+Dhule+-+424006" target="_blank" class="btn btn-map"><i class="fa-solid fa-location-dot"></i> Locate Us</a>
-                    </div>
-                </div>
-
-                <!-- QR Placeholder for instant mobile parsing -->
-                <div class="qr-placeholder">
-                    <!-- Drop in generated QR Code Asset: -->
-                    <!-- <img src="assets/qr-contact.png" alt="QR Contact"> -->
-                    <span>Scan QR<br>Contact Info</span>
+                <h3 style="margin-bottom: 5px;"><i class="fa-solid fa-industry"></i> Shree Balaji Agro Industries</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">
+                    <strong>Regd. Office:</strong> 2404/B1, Lane No.6, Dhule - 424001 (M.S.) India<br>
+                    <strong>Factory Unit:</strong> Plot No. E-35, MIDC, Awdhan, Dhule - 424006 (M.S.)
+                </p>
+                
+                <div class="action-grid" style="margin-top: 15px;">
+                    <a href="tel:+917744998998" class="btn btn-call"><i class="fa-solid fa-phone"></i> Phone</a>
+                    <a href="https://wa.me/917744998998" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a href="mailto:sbaindia44@gmail.com" class="btn btn-email"><i class="fa-solid fa-envelope"></i> Email</a>
+                    <a href="https://maps.google.com/?q=Plot+No.+E-35,+MIDC,+Awdhan,+Dhule+-+424006" target="_blank" class="btn btn-map"><i class="fa-solid fa-location-dot"></i> Locate Us</a>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Scroll up back element -->
     <button id="scrollToTop" title="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
     <footer>
@@ -561,13 +481,11 @@
         <p style="font-size: 0.8rem; margin-top: 5px;">&copy; 2026 Shree Balaji Agro Industries. All Rights Reserved.</p>
     </footer>
 
-    <!-- Interactive Interface Operations Logic Script -->
+    <!-- Interactive Logic Script -->
     <script>
-        // Dark Mode Processing State Engine
         const themeToggle = document.getElementById('themeToggle');
         const icon = themeToggle.querySelector('i');
 
-        // Check local storage configuration
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             icon.classList.replace('fa-moon', 'fa-sun');
@@ -586,7 +504,6 @@
             }
         });
 
-        // Sticky Layout Scroll-To-Top Component Visibility Monitoring
         const scrollTopBtn = document.getElementById('scrollToTop');
         window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
