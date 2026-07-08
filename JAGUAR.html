@@ -19,28 +19,29 @@
 
     <style>
         :root {
-            --primary: #1b5e20;
-            --primary-light: #43a047;
-            --accent: #81c784;
-            --bg-body: #f4f9f5;
+            --primary: #2e7d32;
+            --primary-light: #4cf054;
+            --primary-dark: #1b5e20;
+            --bg-body: #f8faf9;
             --bg-card: #ffffff;
-            --text-main: #2d3748;
-            --text-muted: #718096;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
             --border-color: #e2e8f0;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 12px 34px rgba(46, 125, 50, 0.06);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         [data-theme="dark"] {
-            --primary: #81c784;
-            --primary-light: #a5d6a7;
-            --accent: #1b5e20;
-            --bg-body: #0f172a;
-            --bg-card: #1e293b;
-            --text-main: #f8fafc;
+            --primary: #4caf50;
+            --primary-light: #81c784;
+            --primary-dark: #0f172a;
+            --bg-body: #090d16;
+            --bg-card: #131c2e;
+            --text-main: #f1f5f9;
             --text-muted: #94a3b8;
-            --border-color: #334155;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --border-color: #22314d;
+            --shadow-md: 0 16px 40px rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -55,38 +56,26 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             transition: var(--transition);
-            line-height: 1.6;
+            line-height: 1.7;
+            padding-bottom: 60px;
         }
 
-        /* Utility Layouts */
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        @media (min-width: 768px) {
-            .grid-2 { grid-template-columns: repeat(2, 1fr); }
-            .grid-3 { grid-template-columns: repeat(3, 1fr); }
-            .hero-split { grid-template-columns: 1.2fr 0.8fr; display: grid; align-items: center; gap: 40px;}
-            .full-width-card { grid-column: span 2; }
+            padding: 30px 20px;
         }
 
         /* Header & Navigation */
         header {
             background-color: var(--bg-card);
-            padding: 15px 0;
-            box-shadow: var(--shadow);
+            padding: 18px 0;
+            box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
             z-index: 100;
             border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
         }
 
         .nav-container {
@@ -98,155 +87,154 @@
         .logo-placeholder {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             color: var(--primary);
             text-decoration: none;
+            letter-spacing: -0.3px;
         }
 
         .logo-img {
-            width: 45px;
-            height: 45px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             flex-shrink: 0;
+            box-shadow: 0 2px 10px rgba(46, 125, 50, 0.15);
         }
 
-        /* Dark Mode Toggle */
         .theme-toggle {
             background: none;
             border: none;
             cursor: pointer;
             font-size: 1.2rem;
             color: var(--text-main);
-            padding: 8px;
             border-radius: 50%;
-            background-color: var(--border-color);
-            width: 40px;
-            height: 40px;
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-color);
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(15deg);
+            background-color: var(--border-color);
         }
 
         /* Badges */
         .badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 6px 16px;
+            padding: 8px 18px;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 10px rgba(27, 94, 32, 0.3);
-            margin-bottom: 15px;
-        }
-
-        /* Hero Showcase Section */
-        .hero-section {
-            background: var(--bg-card);
-            border-radius: 24px;
-            padding: 40px;
-            margin-top: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-        }
-
-        .product-title h1 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .product-title h2 {
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            font-weight: 400;
+            letter-spacing: 0.8px;
+            box-shadow: 0 6px 16px rgba(46, 125, 50, 0.2);
             margin-bottom: 20px;
         }
 
-        /* Image Containers */
+        /* Hero Layout */
+        .hero-section {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 45px;
+            margin-top: 15px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-split { grid-template-columns: 1.2fr 0.8fr; }
+        }
+
+        .product-title h1 {
+            font-size: 3.2rem;
+            color: var(--primary);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .product-title h2 {
+            font-size: 1.35rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 25px;
+            margin-top: 5px;
+        }
+
+        /* Hero Image Layout Container */
         .img-container {
             width: 100%;
-            height: 380px;
-            border-radius: 16px;
+            height: 360px;
+            border-radius: 20px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .img-container:hover {
-            transform: scale(1.02);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
         }
 
         .img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
 
-        /* Cards and Lists */
+        /* Layout Content Cards Blocks */
+        .stack-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
         .card {
             background-color: var(--bg-card);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: var(--shadow);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: var(--shadow-md);
             border: 1px solid var(--border-color);
-            transition: var(--transition);
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 0.6s forwards;
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .card h3 {
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-        }
-
-        /* Lists */
-        .icon-list {
-            list-style: none;
-        }
-
-        .icon-list li {
-            display: flex;
-            align-items: flex-start;
             gap: 12px;
-            margin-bottom: 12px;
+            font-size: 1.35rem;
+            font-weight: 700;
         }
 
-        .icon-list i {
-            color: var(--primary-light);
-            margin-top: 5px;
-        }
-
-        /* Composition Table */
+        /* Modern Tables Styling */
         .table-wrapper {
             overflow-x: auto;
-            border-radius: 12px;
+            border-radius: 16px;
             border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
         }
 
         table {
@@ -257,21 +245,48 @@
         }
 
         th, td {
-            padding: 12px 16px;
+            padding: 16px 20px;
             border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
         }
 
         th {
             background-color: var(--primary);
             color: white;
             font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
-        /* Action Buttons Grid */
+        /* Icon Strip Configurations */
+        .icon-list {
+            list-style: none;
+        }
+
+        .icon-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+        }
+
+        .icon-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon-list i {
+            color: var(--primary);
+            font-size: 1.25rem;
+            background: rgba(46, 125, 50, 0.08);
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        /* Standardized Action Button Layouts */
         .action-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
             margin-top: 25px;
         }
 
@@ -279,36 +294,84 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 12px 20px;
-            border-radius: 12px;
+            gap: 10px;
+            padding: 15px 24px;
+            border-radius: 16px;
             font-weight: 600;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white !important;
+            width: 100%;
+            max-width: 280px;
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.15);
         }
 
         .btn-call { background: #0288d1; color: white; }
-        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-whatsapp { background: #2e7d32; color: white; }
         .btn-email { background: #ea4335; color: white; }
-        .btn-map { background: #4285f4; color: white; }
-        .btn-download { background: var(--primary); color: white !important; }
-        .btn-primary-intent { background: var(--primary); color: white; }
+        .btn-map { background: #3b5998; color: white; }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            opacity: 0.9;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+            opacity: 0.95;
         }
 
-        /* Corporate Details Layout */
-        .company-wrapper {
+        /* Bottom Floating Fixed Arrow Element */
+        #scrollToTop {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            z-index: 99;
+            transition: var(--transition);
+        }
+
+        #scrollToTop:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary-dark);
+        }
+
+        /* Centered Responsive Footer Layout */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        footer p {
             width: 100%;
+            text-align: center;
         }
 
-        /* Entry Animation */
+        /* Entry Animation Setup */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -316,9 +379,9 @@
             }
         }
 
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(1) { animation-delay: 0.15s; }
+        .card:nth-child(2) { animation-delay: 0.3s; }
+        .card:nth-child(3) { animation-delay: 0.45s; }
     </style>
 </head>
 <body>
@@ -328,7 +391,7 @@
         <div class="container nav-container">
             <a href="#" class="logo-placeholder">
                 <div class="logo-img">
-                    <img src="logo.jpg" alt="Shree Balaji Agro Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                    <img src="logo.jpg" alt="Shree Balaji Agro Logo">
                 </div>
                 <span>Shree Balaji Agro Industries</span>
             </a>
@@ -347,16 +410,15 @@
                 <h1>JAGUAR</h1>
                 <h2>Botanical (Garlic) Extract 1.6% (Liquid)</h2>
                 
-                <div class="table-wrapper" style="margin: 20px 0;">
+                <div class="table-wrapper" style="margin: 25px 0;">
                     <table>
                         <tr><td><i class="fa-solid fa-certificate"></i> License No.</td><td><strong>LCBWD0320260069</strong></td></tr>
                         <tr><td><i class="fa-solid fa-gavel"></i> Gazette Notification</td><td>S.O.876(E) Dated 16 Feb 2026</td></tr>
                     </table>
                 </div>
 
-                <div class="action-grid">
-                    <a href="tel:+917744998998" class="btn btn-primary-intent"><i class="fa-solid fa-phone"></i> Call Now</a>
-                    <a href="BROCHURE.pdf" target="_blank" class="btn btn-download"><i class="fa-solid fa-file-pdf"></i> Brochure</a>
+                <div style="margin-top: 25px;">
+                    <a href="BROCHURE.pdf" target="_blank" class="btn btn-download"><i class="fa-solid fa-file-pdf"></i> Download Brochure</a>
                 </div>
             </div>
 
@@ -366,8 +428,8 @@
             </div>
         </section>
 
-        <!-- Information Blocks Content Grid -->
-        <div class="grid grid-2" style="margin-top: 25px;">
+        <!-- Dynamic Stack Layout Configuration Block -->
+        <div class="stack-layout">
             
             <!-- Composition Card -->
             <div class="card">
@@ -393,7 +455,7 @@
                                 <td>Cottonseed oil per cent. by weight, maximum</td>
                                 <td>92.4</td>
                             </tr>
-                            <tr style="font-weight: bold; background-color: var(--border-color);">
+                            <tr style="font-weight: 700; background-color: var(--bg-body);">
                                 <td>Total (per cent.)</td>
                                 <td>100</td>
                             </tr>
@@ -443,27 +505,30 @@
                 </div>
             </div>
 
-            <!-- Full Width Crop Recommendation & Dosage Card -->
-            <div class="card full-width-card">
+            <!-- Application Card -->
+            <div class="card">
                 <h3><i class="fa-solid fa-wheat-awn"></i> Crop Recommendation & Dosage</h3>
                 <ul class="icon-list">
-                    <li><i class="fa-solid fa-vial"></i> <div><strong>Target Crop:</strong> Optimized specifically for high-yield <strong>Tomato</strong> performance.</div></li>
-                    <li><i class="fa-solid fa-droplet"></i> <div><strong>Recommended Dose:</strong> Three foliar applications at <strong>1000 ml/ha</strong>.</div></li>
+                    <li>
+                        <i class="fa-solid fa-vial"></i> 
+                        <div><strong>Target Crop:</strong> Optimized specifically for high-yield <strong>Tomato</strong> performance.</div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-droplet"></i> 
+                        <div><strong>Recommended Dose:</strong> Three foliar applications at <strong>1000 ml/ha</strong>.</div>
+                    </li>
                 </ul>
             </div>
 
-        </div>
-
-        <!-- Corporate Profile & Communications -->
-        <div class="card" style="margin-top: 25px;">
-            <div class="company-wrapper">
-                <h3 style="margin-bottom: 5px;"><i class="fa-solid fa-industry"></i> Shree Balaji Agro Industries</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">
+            <!-- Corporate Communications Profile Card Layout -->
+            <div class="card">
+                <h3 style="margin-bottom: 8px;"><i class="fa-solid fa-industry"></i> Shree Balaji Agro Industries</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 10px;">
                     <strong>Regd. Office:</strong> 2404/B1, Lane No.6, Dhule - 424001 (M.S.) India<br>
                     <strong>Factory Unit:</strong> Plot No. E-35, MIDC, Awdhan, Dhule - 424006 (M.S.)
                 </p>
                 
-                <div class="action-grid" style="margin-top: 15px;">
+                <div class="action-grid">
                     <a href="tel:+917744998998" class="btn btn-call"><i class="fa-solid fa-phone"></i> Phone</a>
                     <a href="https://wa.me/917744998998" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
                     <a href="mailto:sbaindia44@gmail.com" class="btn btn-email"><i class="fa-solid fa-envelope"></i> Email</a>
@@ -474,14 +539,16 @@
 
     </main>
 
+    <!-- Floating Trigger Element -->
     <button id="scrollToTop" title="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
+    <!-- Footer Component Layout Section -->
     <footer>
-        <p>🌱 Trusted Agricultural Formulation Innovation Solutions</p>
-        <p style="font-size: 0.8rem; margin-top: 5px;">&copy; 2026 Shree Balaji Agro Industries. All Rights Reserved.</p>
+        <p style="font-weight: 500; font-size: 1rem;">🌱 Trusted Agricultural Formulation Innovation Solutions</p>
+        <p style="font-size: 0.85rem; opacity: 0.85;">&copy; 2026 Shree Balaji Agro Industries. All Rights Reserved.</p>
     </footer>
 
-    <!-- Interactive Logic Script -->
+    <!-- Script Operations Logic -->
     <script>
         const themeToggle = document.getElementById('themeToggle');
         const icon = themeToggle.querySelector('i');
