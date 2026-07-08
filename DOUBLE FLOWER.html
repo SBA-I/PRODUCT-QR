@@ -1,190 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DOUBLE FLOWER - Folic acid 0.1% (Liquid)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>DOUBLE FLOWER - Folic acid 0.1% (Liquid) | Shree Balaji Agro</title>
+    <meta name="description" content="Discover TERMINATOR, a high-quality Folic acid 0.1% liquid biostimulant by Shree Balaji Agro Industries. Boost chilli crop yields naturally.">
+    <meta name="keywords" content="DOUBLE FLOWER Folic acid, folic acid 0.1, chilli yield booster, Shree Balaji Agro Industries">
+    <meta name="author" content="Shree Balaji Agro Industries">
+    <meta property="og:title" content="DOUBLE FLOWER - Folic acid 0.1% (Liquid)">
+    <meta property="og:description" content="Official technical specifications and application guide for DOUBLE FLOWER.">
+    <meta property="og:type" content="website">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f1f8f4;
-  color: #333;
-}
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4cf054;
+            --primary-dark: #1b5e20;
+            --bg-body: #f8faf9;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 12px 34px rgba(46, 125, 50, 0.06);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-/* HEADER */
-.header {
-  background: linear-gradient(135deg, #1b5e20, #43a047);
-  color: white;
-  padding: 30px 20px;
-  text-align: center;
-  position: relative;
-}
+        [data-theme="dark"] {
+            --primary: #4caf50;
+            --primary-light: #81c784;
+            --primary-dark: #0f172a;
+            --bg-body: #090d16;
+            --bg-card: #131c2e;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #22314d;
+            --shadow-md: 0 16px 40px rgba(0, 0, 0, 0.3);
+        }
 
-.badge {
-  background: #ffffff;
-  color: #1b5e20;
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
 
-.header h1 {
-  margin: 5px 0;
-  font-size: 32px;
-  letter-spacing: 2px;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            transition: var(--transition);
+            line-height: 1.7;
+            padding-bottom: 60px;
+        }
 
-.header h2 {
-  margin: 0;
-  font-weight: 400;
-}
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
 
-/* CONTAINER */
-.container {
-  max-width: 750px;
-  margin: auto;
-  padding: 15px;
-}
+        /* Header & Navigation */
+        header {
+            background-color: var(--bg-card);
+            padding: 18px 0;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
 
-/* CARD */
-.card {
-  background: white;
-  border-radius: 15px;
-  padding: 18px;
-  margin: 15px 0;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.card:hover {
-  transform: translateY(-6px);
-}
+        .logo-placeholder {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 700;
+            font-size: 1.35rem;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.3px;
+        }
 
-.card h3 {
-  margin-bottom: 10px;
-  color: #2e7d32;
-  border-left: 4px solid #66bb6a;
-  padding-left: 10px;
-}
+        .logo-img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 2px 10px rgba(46, 125, 50, 0.15);
+        }
 
-/* COMPANY */
-.company {
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.6;
-}
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            border-radius: 50%;
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-color);
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
 
-.license {
-  margin-top: 10px;
-  font-weight: 600;
-  color: #1b5e20;
-}
+        .theme-toggle:hover {
+            transform: rotate(15deg);
+            background-color: var(--border-color);
+        }
 
-/* LIST */
-ul {
-  padding-left: 18px;
-}
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            box-shadow: 0 6px 16px rgba(46, 125, 50, 0.2);
+            margin-bottom: 20px;
+        }
 
-/* BUTTONS */
-.btns {
-  text-align: center;
-  margin-top: 20px;
-}
+        /* Hero Layout */
+        .hero-section {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 45px;
+            margin-top: 15px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
 
-.btn {
-  display: inline-block;
-  margin: 6px;
-  padding: 12px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  color: white;
-  font-size: 14px;
-  background: linear-gradient(135deg, #43a047, #1b5e20);
-  transition: 0.3s;
-}
+        @media (min-width: 768px) {
+            .hero-split { grid-template-columns: 1.2fr 0.8fr; }
+        }
 
-.btn:hover {
-  background: #1b5e20;
-}
+        .product-title h1 {
+            font-size: 3.2rem;
+            color: var(--primary);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  font-size: 12px;
-  padding: 15px;
-  color: #666;
-}
-</style>
+        .product-title h2 {
+            font-size: 1.35rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 25px;
+            margin-top: 5px;
+        }
+
+        /* Hero Image Layout Container */
+        .img-container {
+            width: 100%;
+            height: 360px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Layout Content Cards Blocks */
+        .stack-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        /* Modern Tables Styling */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background: var(--bg-card);
+        }
+
+        th, td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        /* Icon Strip Configurations */
+        .icon-list {
+            list-style: none;
+        }
+
+        .icon-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+        }
+
+        .icon-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon-list i {
+            color: var(--primary);
+            font-size: 1.25rem;
+            background: rgba(46, 125, 50, 0.08);
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        /* Standardized Action Button Layouts */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 24px;
+            border-radius: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white !important;
+            width: 100%;
+            max-width: 280px;
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.15);
+        }
+
+        .btn-call { background: #0288d1; color: white; }
+        .btn-whatsapp { background: #2e7d32; color: white; }
+        .btn-email { background: #ea4335; color: white; }
+        .btn-map { background: #3b5998; color: white; }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+            opacity: 0.95;
+        }
+
+        /* Bottom Floating Fixed Arrow Element */
+        #scrollToTop {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            z-index: 99;
+            transition: var(--transition);
+        }
+
+        #scrollToTop:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary-dark);
+        }
+
+        /* Centered Responsive Footer Layout */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        footer p {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Entry Animation Setup */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:nth-child(1) { animation-delay: 0.15s; }
+        .card:nth-child(2) { animation-delay: 0.3s; }
+        .card:nth-child(3) { animation-delay: 0.45s; }
+    </style>
 </head>
-
 <body>
 
-<div class="header">
-  <h1>DOUBLE FLOWER</h1>
-  <h2> Folic acid 0.1% (Liquid)</h2>
-</div>
+    <!-- Header Section -->
+   <!-- Header Section -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo-placeholder">
+                <!-- Removed default background styling completely to eliminate the green color block -->
+                <div class="logo-img" style="background: transparent; box-shadow: none;">
+                    <img src="logo.jpg" alt="Shree Balaji Agro Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <span>Shree Balaji Agro Industries</span>
+            </a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
 
-<div class="container">
+    <main class="container">
+        
+        <!-- Hero Showcase Section -->
+        <section class="hero-section hero-split">
+            <div class="product-title">
+                <span class="badge"><i class="fa-solid fa-shield-halved"></i> Grade Of BioStimulant</span>
+                <h1>DOUBLE FLOWER</h1>
+                <h2>Folic acid 0.1% (Liquid)</h2>
+                
+                <div class="table-wrapper" style="margin: 25px 0;">
+                    <table>
+                        <tr><td><i class="fa-solid fa-certificate"></i> License No.</td><td><strong>LCBWD0320260069</strong></td></tr>
+                        <tr><td><i class="fa-solid fa-gavel"></i> Gazette Notification</td><td>S.O.876(E) Dated 16 Feb 2026</td></tr>
+                    </table>
+                </div>
 
-  <div class="card company">
-    <b>SHREE BALAJI AGRO INDUSTRIES</b><br>
-    Regd. Off.: 2404/B1, Lane No.6, Dhule - 424001 (M.S.)<br>
-    Factory: Plot No. E-35, MIDC, Awdhan, Dhule - 424006 (M.S.)<br><br>
-    Email: sbaindia44@gmail.com<br>
-    Mobile: +91 7744998998
+                <div style="margin-top: 25px;">
+                    <a href="BROCHURE.pdf" target="_blank" class="btn btn-download"><i class="fa-solid fa-file-pdf"></i> Download Brochure</a>
+                </div>
+            </div>
 
-    <div class="license">
-      Grade Of BioStimulant
-      License No.: LCBWD0320260069
-    </div>
-  </div>
+            <!-- Product Image Container -->
+            <div class="img-container">
+                <img src="jaguar-img.jpg" alt="TERMINATOR Botanical Garlic Extract 1.6% Bottle">
+            </div>
+        </section>
 
-  <div class="card">
-    <h3>📜 Gazette Notification Number And Date</h3>
-    <p>     S.O.876(E)Dated 16 Feb 2026</p>
-  </div>
+        <!-- Dynamic Stack Layout Configuration Block -->
+        <div class="stack-layout">
+            
+            <!-- Composition Card -->
+            <div class="card">
+                <h3><i class="fa-solid fa-flask"></i> Certified Composition</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ingredients</th>
+                                <th>Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Folic acid per cent. by weight, minimum</td>
+                                <td>0.1</td>
+                            </tr>
+                            <tr>
+                                <td>Polysorbate 20 per cent. by weight, maximum</td>
+                                <td>3.0</td>
+                            </tr>
+                            <tr>
+                                <td>Sodium bicarbonate per cent. by weight, maximum</td>
+                                <td>2.5</td>
+                            </tr>
+                            <tr>
+                                <td>Water per cent. by weight</td>
+                                <td>QS</td>
+                            </tr>
+                            <tr style="font-weight: 700; background-color: var(--bg-body);">
+                                <td>Total (per cent.)</td>
+                                <td>100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-  <div class="card">
-    <h3>🧪 Composition</h3>
-    <h2>  Folic acid 0.1% (Liquid)</h2>
-    <ul>
-      <li>(i)   Folic acid per cent. by weight, minimum: 0.1%</li>
-      <li>(ii)  Polysorbate 20 per cent. by weight, maximum: 3.0%</li>
-      <li>(iii) Sodium bicarbonate per cent. by weight, maximum: 2.5%</li>
-      <li>(iv)  Water per cent. by weight: QS</li?>
-      <li>(v)   Total (per cent.): 100%</li>
-    </ul>
-  </div>
 
-  <div class="card">
-    <h3>🌾 Crops</h3>
-    <p>Chilli</p>
-  </div>
+            <!-- Official Gazette Specifications Card -->
+            <div class="card">
+                <h3><i class="fa-solid fa-list-check"></i> Official Specifications</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parameters</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Folic acid per cent. by weight, minimum</td>
+                                <td>0.1</td>
+                            </tr>
+                            <tr>
+                                <td>Total organic carbon per cent. by weight, minimum</td>
+                                <td>2.0</td>
+                            </tr>
+                            <tr>
+                                <td>pH (10% aqueous solution)</td>
+                                <td>7.5 - 8.5</td>
+                            </tr>
+                            <tr>
+                                <td>Specific gravity</td>
+                                <td>1.0 - 1.10</td>
+                            </tr>
+                            <tr>
+                                <td>Solubility per cent. by weight, minimum</td>
+                                <td>99.98</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-  <div class="card">
-    <h3>💧 Dose</h3>
-    <ul>
-      <li>Four foliar applications at 200 ml/haFour foliar applications at 200 ml/ha</li>
-    </ul>
-  </div>
 
-  <div class="btns">
-    <a href="tel:+917744998998" class="btn">📞 Call Now</a>
-    <a href="mailto:sbaindia44@gmail.com" class="btn">📧 Email</a>
-  </div>
+             <!-- Crop Recommendation & Dosage Card -->
+            <div class="card">
+                <h3><i class="fa-solid fa-wheat-awn"></i> Crop Recommendation & Dosage</h3>
+                <ul class="icon-list">
+                    <li>
+                        <i class="fa-solid fa-vial"></i> 
+                        <div><strong>Name of the crop:</strong> Chili</div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-droplet"></i> 
+                        <div><strong>Dose:</strong> Four foliar applications at <strong>200 ml/ha</strong>.</div>
+                    </li>
+                </ul>
+            </div>
 
-</div>
 
-<footer>
-  🌱 Trusted Agricultural Solutions | © Shree Balaji Agro Industries
-</footer>
+            <!-- Corporate Communications Profile Card Layout -->
+            <div class="card">
+                <h3 style="margin-bottom: 8px;"><i class="fa-solid fa-industry"></i> Shree Balaji Agro Industries</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 10px;">
+                    <strong>Regd. Office:</strong> 2404/B1, Lane No.6, Dhule - 424001 (M.S.),Maharashtra, India<br>
+                    <strong>Factory Unit:</strong> Plot No. E-35, MIDC, Awdhan, Dhule - 424006 (M.S.), Maharashtra, India
+                </p>
+                
+                <div class="action-grid">
+                    <a href="tel:+917744998998" class="btn btn-call"><i class="fa-solid fa-phone"></i> Phone</a>
+                    <a href="https://wa.me/917744998998" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a href="mailto:sbaindia44@gmail.com" class="btn btn-email"><i class="fa-solid fa-envelope"></i> Email</a>
+                    <a href="https://maps.google.com/?q=Plot+No.+E-35,+MIDC,+Awdhan,+Dhule+-+424006" target="_blank" class="btn btn-map"><i class="fa-solid fa-location-dot"></i> Locate Us</a>
+                </div>
+            </div>
+        </div>
 
+    </main>
+
+    <!-- Floating Trigger Element -->
+    <button id="scrollToTop" title="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Footer Component Layout Section -->
+    <footer>
+        <p style="font-weight: 500; font-size: 1rem;">🌱 Trusted Agricultural Formulation Innovation Solutions</p>
+        <p style="font-size: 0.85rem; opacity: 0.85;">&copy; 2026 Shree Balaji Agro Industries. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Script Operations Logic -->
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            let currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        const scrollTopBtn = document.getElementById('scrollToTop');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.style.display = "flex";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
